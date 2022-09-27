@@ -1,4 +1,5 @@
-# DEV5-portfolio
-## Liena Paeps
+# Liena Paeps - Portfolio 
 
-[Lab 1](https://github.com/lienapaeps/dev5-lab1)
+| Task 💻    | Info ℹ         |
+| ---------| ------------- |
+| [Lab 1](https://github.com/lienapaeps/dev5-lab1) | GIT |
