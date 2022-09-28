@@ -1,7 +1,7 @@
 # Lab 2
 
 ## Bingo App
-[Link naar codesandbox]()
+[Link naar codesandbox](https://codesandbox.io/s/dark-fast-hcv6by)
 
 ## ES2019 feature
 ### JavaScript String trimStart
@@ -9,13 +9,16 @@ Met `trimStart()` kan je de witte ruimte in het begin van een string verwijderen
 `let nieuweString = origineleString.trimStart();`
 
 Voorbeeld
-`let string = '   Development 5   ';`
-`let resultaat = string.trimStart();`
-`console.log(resultaat);`
+```
+let string = '   Development 5   ';
+let resultaat = string.trimStart();
+console.log(resultaat);
+```
 
 Output
-`'Development 5'´
-
+```
+'Development 5'
+```
 
 
 
