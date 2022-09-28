@@ -34,8 +34,9 @@ export default class Card {
     card.addEventListener("click", (e) => {
         // console.log("clicked");
         this.markDone(e.target);
-      // call checkWinner() on the Bingo class
-      // try to call the save() method on the Bingo class
+        // call checkWinner() on the Bingo class
+        Bingo.checkWinner();
+        // try to call the save() method on the Bingo class
     });
   }
 }
