@@ -1,5 +1,3 @@
-import '../style.css';
-
 // import another class
 import Bingo from "./bingo.js";
 
