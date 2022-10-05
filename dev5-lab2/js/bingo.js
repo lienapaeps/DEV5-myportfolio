@@ -78,7 +78,9 @@ export default class Bingo {
     // console.log("Saving bingo to localstorage");
     // let cards = document.querySelectorAll(".bingo__card--done");
     let cardsIsDone = document.querySelectorAll(".bingo__card--done");
-    cardsIsDone.forEach(card => { cardsWon.push(card.dataset.number); });
+    cardsIsDone.forEach(card => {
+      cardsWon.push(card.dataset.number);
+    });
 
     // if there are not done cards, remove localstorage
     if (cardsIsDone.length === 0) {
@@ -104,7 +106,9 @@ export default class Bingo {
       // JSON.parse() will convert the string [1, 7, 8] back to an array which you can loop
       // loop over the numbers 1, 7, 8 and mark those cards as done by adding the right CSS class
       // .bingo__card--done
-      cardsWon.forEach(card => { document.querySelector(`[data-number="${card}"]`).classList.add("bingo__card--done"); });
+      cardsWon.forEach(card => {
+        document.querySelector(`[data-number="${card}"]`).classList.add("bingo__card--done");
+      });
       this.checkWinner();
     }
   }
