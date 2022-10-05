@@ -98,4 +98,12 @@ export default class Weather {
                 this.displayAgent(data.data);
             });
     }
+
+    displayAgent(data) {
+        let name = data.displayName;
+        let portrait = data.fullPortrait;
+
+        document.querySelector('.agent__name').innerText = `Let's play with ${name} today`;
+        document.querySelector('.agent__portrait').src = portrait;
+    }
 }
