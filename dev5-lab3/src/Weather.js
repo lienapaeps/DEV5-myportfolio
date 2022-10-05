@@ -55,12 +55,13 @@ export default class Weather {
         document.querySelector('.weather__temp').innerText = temp + "°C";
         document.querySelector('.weather__summary').innerText = weather;
         document.querySelector('.weather__location').innerText = location;
-        document.querySelector('.weather__icon').appendChild(img);
+
+        this.getPlaylist();
     }
 
     getPlaylist() {
         // get playlist from deezer api
-        const url = `https://api.deezer.com/search?q=${this.weather}`;
+        const url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${this.weather}`;
 
         fetch(url)
             .then(response => response.json())
