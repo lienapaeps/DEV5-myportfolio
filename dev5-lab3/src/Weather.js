@@ -55,30 +55,6 @@ export default class Weather {
         document.querySelector('.weather__temp').innerText = temp + "°C";
         document.querySelector('.weather__summary').innerText = weather;
         document.querySelector('.weather__location').innerText = location;
-
-        this.getSong();
-    }
-
-    getSong() {
-        // get playlist from deezer api
-        const url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${this.weather}`;
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                // console.log(data);
-
-                // get the first item of the array
-                const firstItem = data.data[0];
-                // console.log(firstItem);
-
-                // save to localstorage
-                localStorage.setItem('song', JSON.stringify(firstItem));
-                // save timestamp
-                localStorage.setItem('song', Date.now());
-
-                // this.displaySong(data);
-            });
     }
 
 }
