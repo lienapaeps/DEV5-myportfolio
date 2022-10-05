@@ -58,4 +58,21 @@ export default class Weather {
         document.querySelector('.weather__icon').appendChild(img);
     }
 
+    getPlaylist() {
+        // get playlist from deezer api
+        const url = `https://api.deezer.com/search?q=${this.weather}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // save to localstorage
+                localStorage.setItem('playlist', JSON.stringify(data));
+                // save timestamp
+                localStorage.setItem('playlist_timestamp', Date.now());
+
+                this.displayPlaylist(data);
+            });
+    }
+
 }
