@@ -113,7 +113,7 @@ export default class Weather {
         let portrait = data.fullPortrait;
         let role = data.role.displayName;
 
-        document.querySelector('.agent__name').innerText = `Let's play with ${name} today`;
+        document.querySelector('.agent__name').innerText = name;
         document.querySelector('.agent__portrait').src = portrait;
         document.querySelector('.agent__role').innerText = role;
     }

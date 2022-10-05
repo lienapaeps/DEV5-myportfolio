@@ -1,5 +1,70 @@
 #app {
-  background-color: red;
+  background-color: #122230;
   width: 300px;
-  height: 600px;
+  height: 650px;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 1.5em
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.weather {
+  padding: 1.5em 1em;
+  text-align: center;
+  color: #122230;
+  background-color: #ece8e1;
+}
+
+.agent {
+  color: #ece8e1;
+  padding: 1.8em 1em;
+  text-align: center;
+}
+
+.agent h2 {
+  margin: 0;
+}
+
+.agent__name {
+  text-transform: uppercase;
+  color :#ff4755;
+}
+
+.agent__role {
+  font-size: .8em;
+  border-radius: 4px;
+  padding: .5em 1em;
+  background-color: #ff4755;
+  color: #ece8e1;
+  width: 35%;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.agent__portrait {
+  width: 100%;
+  cursor: pointer;
+}
+
+.agent__portrait:hover {
+  transform: scale(1.1);
+}
+
+.logo {
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 2.5em;
 }
