@@ -48,13 +48,54 @@ export default class Weather {
         const weather = data.current.condition.text;
         const location = data.location.name;
 
-        const img = document.createElement("img");
-        img.src = data.current.condition.icon;
-        img.alt = weather;
-
         document.querySelector('.weather__temp').innerText = temp + "°C";
         document.querySelector('.weather__summary').innerText = weather;
         document.querySelector('.weather__location').innerText = location;
+
     }
 
+    // Valorant API
+    getPhoenix() {
+        const url = `https://valorant-api.com/v1/agents/eb93336a-449b-9c1b-0a54-a891f7921d69`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                this.displayAgent(data.data);
+            });
+    }
+
+    getSage() {
+        const url = `https://valorant-api.com/v1/agents/569fdd95-4d10-43ab-ca70-79becc718b46`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                this.displayAgent(data.data);
+            });
+    }
+
+    getOmen() {
+        const url = `https://valorant-api.com/v1/agents/8e253930-4c05-31dd-1b6c-968525494517`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                this.displayAgent(data.data);
+            });
+    }
+
+    getJett() {
+        const url = `https://valorant-api.com/v1/agents/add6443a-41bd-e414-f6ad-e58d267f4e95`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.data);
+                this.displayAgent(data.data);
+            });
+    }
 }
