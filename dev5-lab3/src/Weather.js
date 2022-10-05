@@ -52,6 +52,15 @@ export default class Weather {
         document.querySelector('.weather__summary').innerText = weather;
         document.querySelector('.weather__location').innerText = location;
 
+        if(weather.includes("sun")) {
+            this.getPhoenix();
+        } else if(weather.includes("snow")) {
+            this.getSage();
+        } else if(weather.includes("rain")) {
+            this.getOmen();
+        } else if(weather.includes("cloud")) {
+            this.getJett();
+        }
     }
 
     // Valorant API
@@ -102,8 +111,10 @@ export default class Weather {
     displayAgent(data) {
         let name = data.displayName;
         let portrait = data.fullPortrait;
+        let role = data.role.displayName;
 
         document.querySelector('.agent__name').innerText = `Let's play with ${name} today`;
         document.querySelector('.agent__portrait').src = portrait;
+        document.querySelector('.agent__role').innerText = role;
     }
 }
