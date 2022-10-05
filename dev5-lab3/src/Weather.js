@@ -56,23 +56,28 @@ export default class Weather {
         document.querySelector('.weather__summary').innerText = weather;
         document.querySelector('.weather__location').innerText = location;
 
-        this.getPlaylist();
+        this.getSong();
     }
 
-    getPlaylist() {
+    getSong() {
         // get playlist from deezer api
         const url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${this.weather}`;
 
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                // save to localstorage
-                localStorage.setItem('playlist', JSON.stringify(data));
-                // save timestamp
-                localStorage.setItem('playlist_timestamp', Date.now());
+                // console.log(data);
 
-                this.displayPlaylist(data);
+                // get the first item of the array
+                const firstItem = data.data[0];
+                // console.log(firstItem);
+
+                // save to localstorage
+                localStorage.setItem('song', JSON.stringify(firstItem));
+                // save timestamp
+                localStorage.setItem('song', Date.now());
+
+                // this.displaySong(data);
             });
     }
 
