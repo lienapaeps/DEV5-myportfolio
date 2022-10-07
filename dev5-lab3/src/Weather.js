@@ -52,13 +52,13 @@ export default class Weather {
         document.querySelector('.weather__summary').innerText = weather;
         document.querySelector('.weather__location').innerText = location;
 
-        if(weather.includes("sun")) {
+        if(weather.toLowerCase().includes("sun")) {
             this.getPhoenix();
-        } else if(weather.includes("snow")) {
+        } else if(weather.toLowerCase().includes("snow")) {
             this.getSage();
-        } else if(weather.includes("rain")) {
+        } else if(weather.toLowerCase().includes("rain")) {
             this.getOmen();
-        } else if(weather.includes("cloud")) {
+        } else if(weather.toLowerCase().includes("cloud")) {
             this.getJett();
         }
     }
@@ -70,6 +70,7 @@ export default class Weather {
         fetch(url)
             .then(response => response.json())
             .then(data => {
+                // console.log("Phoenix");
                 // console.log(data);
                 this.displayAgent(data.data);
             });
