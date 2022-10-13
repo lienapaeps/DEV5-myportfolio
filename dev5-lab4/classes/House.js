@@ -7,14 +7,26 @@ export default class House {
     }
 
     createHouse() {
-        // add house
+        // load texture
+        const loader = new THREE.TextureLoader();
+
+        // floor
         const floorGeometry = new THREE.BoxGeometry( 3, 0.1, 5);
-        const floorMaterial = new THREE.MeshLambertMaterial( { color: 0xff00ff } );
+        const floorMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+        // load floor texture
+        const floorTexture = loader.load( '/assets/textures/floor_texture.jpg' );
+        floorMaterial.map = floorTexture;
         const floor = new THREE.Mesh( floorGeometry, floorMaterial );
         this.group.add( floor );
 
+        // load brick texture
+        const brickTexture = loader.load( '/assets/textures/brick_texture.jpg' );
+
+        // walls
         const wallSmallGeometry = new THREE.BoxGeometry( 3, 2, 0.1);
-        const wallMaterial = new THREE.MeshLambertMaterial( { color: 0xff0000 } );
+        const wallMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+
+        wallMaterial.map = brickTexture;
 
         const wallBigGeometry = new THREE.BoxGeometry( 5, 2, 0.1);
 
@@ -36,9 +48,13 @@ export default class House {
         wall4.rotation.y = Math.PI / 2;
         this.group.add( wall4 );
 
-        // add roof
+        // roof
         const roofGeometry = new THREE.BoxGeometry( 0.1, 2.92, 5.5 );
-        const roofMaterial = new THREE.MeshLambertMaterial( { color: 0x0000ff } );
+        const roofMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+        // load roof texture
+        const roofTexture = loader.load( '/assets/textures/roof_texture.jpg' );
+        roofMaterial.map = roofTexture;
+
         const roof1 = new THREE.Mesh( roofGeometry, roofMaterial );
         roof1.position.set(1, 2.5, 0);
         roof1.rotation.z = Math.PI / 4;
@@ -49,6 +65,7 @@ export default class House {
         roof2.rotation.z = -Math.PI / 4;
         this.group.add( roof2 );
 
+        // triangle roof
         const x = 0;
         const y = 0;
         const shape = new THREE.Shape();
@@ -56,7 +73,9 @@ export default class House {
         shape.lineTo(x + 1.52, y - 1.6);
         shape.lineTo(x, y);
         const triangleGeometry = new THREE.ShapeGeometry(shape);
-        const triangleMaterial = new THREE.MeshLambertMaterial( { color: 0xff0000 } );
+        const triangleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+        triangleMaterial.map = brickTexture;
+
         const triangle1 = new THREE.Mesh( triangleGeometry, triangleMaterial );
         triangle1.position.set(0, 3.5, 2.5);
         this.group.add( triangle1 );

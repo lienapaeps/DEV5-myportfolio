@@ -12,6 +12,9 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0xEBE5CE, 1);
 document.body.appendChild( renderer.domElement );
 
+// load texture
+const loader = new THREE.TextureLoader();
+
 // add orbit controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -30,7 +33,11 @@ scene.add( house.group );
 
 // add grass
 const grassGeometry = new THREE.PlaneGeometry( 20, 20 );
-const grassMaterial = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
+const grassMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+ // load grass texture
+ const grassTexture = loader.load( '/assets/textures/grass_texture.jpg' );
+ grassMaterial.map = grassTexture;
+
 const grass = new THREE.Mesh( grassGeometry, grassMaterial );
 grass.rotation.x = -Math.PI / 2;
 grass.position.y = -0.1;
