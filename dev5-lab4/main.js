@@ -34,7 +34,7 @@ scene.add( house.group );
 // add sand
 const sandGeometry = new THREE.PlaneGeometry( 20, 20 );
 const sandMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
- // load grass texture
+ // load sand texture
  const sandTexture = loader.load( '/assets/textures/sand_texture.jpg' );
  sandMaterial.map = sandTexture;
 
@@ -47,17 +47,27 @@ camera.position.x = -4;
 camera.position.z = 8;
 camera.position.y = 2;
 
+// add background
+const skyTexture = loader.load('/assets/textures/sky.jpg');
+const sphereGeometry = new THREE.SphereGeometry( 100, 32, 32 );
+const sphereMaterial = new THREE.MeshLambertMaterial( {color: 0xffffff} );
+sphereMaterial.map = skyTexture;
+sphereMaterial.side = THREE.BackSide;
+const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+scene.add( sphere );
+
 // import mcqueen gltf
 let mcqueen;
 let cone;
 let mater;
+let zeppelin;
 
 const gltfLoader = new GLTFLoader();
 gltfLoader.load('/assets/models/lighting_mcqueen/scene.gltf', (gltf) => {
     mcqueen = gltf.scene;
-    mcqueen.position.set(-5, 0, 0);
+    mcqueen.position.set(-5, .5, 0);
     mcqueen.scale.set(0.5, 0.5, 0.5);
-    mcqueen.rotation.x = Math.PI / 2;
+    mcqueen.rotation.x = Math.PI / 3;
     scene.add(gltf.scene);
 });
 
@@ -72,21 +82,16 @@ gltfLoader.load('/assets/models/mater/scene.gltf', (gltf) => {
     mater = gltf.scene;
     mater.scale.set(0.4, 0.4, 0.4);
     mater.position.set(-5, 0, -5);
-    // rotate mater 180 degrees
     mater.rotation.y = Math.PI;
     scene.add(gltf.scene);
 });
 
-function animate() {
-    requestAnimationFrame( animate );
-
-    // house.rotation.x += 0.01;
-    // house.rotation.y += 0.01;
-
-    renderer.render( scene, camera );
-};
-
-animate();
+gltfLoader.load('/assets/models/zeppelin_aircraft/scene.gltf', (gltf) => {
+    zeppelin = gltf.scene;
+    zeppelin.scale.set(6, 6, 6);
+    zeppelin.position.set(0, 6, 0);
+    scene.add(gltf.scene);
+});
 
 let cactus;
 let cactus2;
@@ -135,3 +140,13 @@ for(let i = 0; i < 15; i++) {
   
     addCactus2(x, z);
 }
+
+function animate() {
+    requestAnimationFrame( animate );
+
+    // zeppelin.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+};
+
+animate();

@@ -97,5 +97,16 @@ export default class House {
         door.position.set(0, .7, -2.46);
         // load door texture
         this.group.add( door );
+
+        // name card
+        const nameCardGeometry = new THREE.BoxGeometry( 0.5, 0.5, 0.1);
+        const nameCardMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+        const nameCard = new THREE.Mesh( nameCardGeometry, nameCardMaterial );
+        // load photo
+        const photoTexture = loader.load( '/assets/textures/photo.jpg' );
+        nameCardMaterial.map = photoTexture;
+        
+        nameCard.position.set(0, 2, -2.46);
+        this.group.add( nameCard );
     }
 }

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Zeppelin Aircraft
+* source:	https://sketchfab.com/3d-models/zeppelin-aircraft-036fc5cfb9334f42b41454e7d9ae1f96
+* author:	Miguel Adão (https://sketchfab.com/theauditor)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Zeppelin Aircraft" (https://sketchfab.com/3d-models/zeppelin-aircraft-036fc5cfb9334f42b41454e7d9ae1f96) by Miguel Adão (https://sketchfab.com/theauditor) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
