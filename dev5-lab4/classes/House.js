@@ -85,5 +85,17 @@ export default class House {
         triangle2.position.set(0, 3.5, -2.5);
         triangle2.rotation.y = Math.PI;
         this.group.add( triangle2 );
+
+        // door
+        const doorGeometry = new THREE.BoxGeometry( 0.8, 1.5, 0.1);
+        const doorMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+        // load door texture
+        const doorTexture = loader.load( '/assets/textures/door_texture.jfif' );
+        doorMaterial.map = doorTexture;
+
+        const door = new THREE.Mesh( doorGeometry, doorMaterial );
+        door.position.set(0, .7, -2.46);
+        // load door texture
+        this.group.add( door );
     }
 }

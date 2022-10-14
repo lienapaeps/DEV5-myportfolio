@@ -31,17 +31,17 @@ const directionalLightHelper = new THREE.DirectionalLightHelper( directionalLigh
 const house = new House();
 scene.add( house.group );
 
-// add grass
-const grassGeometry = new THREE.PlaneGeometry( 20, 20 );
-const grassMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+// add sand
+const sandGeometry = new THREE.PlaneGeometry( 20, 20 );
+const sandMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
  // load grass texture
- const grassTexture = loader.load( '/assets/textures/grass_texture.jpg' );
- grassMaterial.map = grassTexture;
+ const sandTexture = loader.load( '/assets/textures/sand_texture.jpg' );
+ sandMaterial.map = sandTexture;
 
-const grass = new THREE.Mesh( grassGeometry, grassMaterial );
-grass.rotation.x = -Math.PI / 2;
-grass.position.y = -0.1;
-scene.add( grass );
+const sand = new THREE.Mesh( sandGeometry, sandMaterial );
+sand.rotation.x = -Math.PI / 2;
+sand.position.y = -0.1;
+scene.add( sand );
 
 camera.position.x = -4;
 camera.position.z = 8;
@@ -77,7 +77,6 @@ gltfLoader.load('/assets/models/mater/scene.gltf', (gltf) => {
     scene.add(gltf.scene);
 });
 
-
 function animate() {
     requestAnimationFrame( animate );
 
@@ -88,3 +87,51 @@ function animate() {
 };
 
 animate();
+
+let cactus;
+let cactus2;
+
+const addCactus = (x, z) => {
+    gltfLoader.load('/assets/models/cactus/scene.gltf', (gltf) => {
+        cactus = gltf.scene;
+        cactus.scale.set(1.5, 1.5, 1.5);
+        cactus.position.set(x, 0, z);
+        scene.add(gltf.scene);
+    });
+}
+
+const addCactus2 = (x, z) => {
+    gltfLoader.load('/assets/models/cactus_2/scene.gltf', (gltf) => {
+        cactus2 = gltf.scene;
+        cactus2.position.set(x, 0, z);
+        scene.add(gltf.scene);
+    });
+}
+
+// add random cactussen
+for(let i = 0; i < 15; i++) {
+    // random sign
+    let sign = Math.random() < 0.5 ? -1 : 1;
+    let x = Math.random() * 10 * sign;
+    sign = Math.random() < 0.5 ? -1 : 1;
+    let y = Math.random() * 10 * sign;
+    sign = Math.random() < 0.5 ? -1 : 1;
+    let z = Math.random() * 10 * sign;
+    sign = Math.random() < 0.5 ? -1 : 1;
+  
+    addCactus(x, z);
+}
+
+// add random cactussen
+for(let i = 0; i < 15; i++) {
+    // random sign
+    let sign = Math.random() < 0.5 ? -1 : 1;
+    let x = Math.random() * 10 * sign;
+    sign = Math.random() < 0.5 ? -1 : 1;
+    let y = Math.random() * 10 * sign;
+    sign = Math.random() < 0.5 ? -1 : 1;
+    let z = Math.random() * 10 * sign;
+    sign = Math.random() < 0.5 ? -1 : 1;
+  
+    addCactus2(x, z);
+}
