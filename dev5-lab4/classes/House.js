@@ -16,6 +16,7 @@ export default class House {
         // load floor texture
         const floorTexture = loader.load( '/assets/textures/floor_texture.jpg' );
         floorMaterial.map = floorTexture;
+        
         const floor = new THREE.Mesh( floorGeometry, floorMaterial );
         this.group.add( floor );
 

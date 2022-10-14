@@ -1,0 +1,11 @@
+Model Information:
+* title:	Traffic cone (Game ready)
+* source:	https://sketchfab.com/3d-models/traffic-cone-game-ready-8cdac192abd044988c314eeb6377a3a0
+* author:	PT34 (https://sketchfab.com/PT34)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Traffic cone (Game ready)" (https://sketchfab.com/3d-models/traffic-cone-game-ready-8cdac192abd044988c314eeb6377a3a0) by PT34 (https://sketchfab.com/PT34) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

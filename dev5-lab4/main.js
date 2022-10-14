@@ -25,7 +25,7 @@ scene.add( directionalLight );
 
 // add directional light helper
 const directionalLightHelper = new THREE.DirectionalLightHelper( directionalLight, 2 );
-scene.add( directionalLightHelper );
+// scene.add( directionalLightHelper );
 
 // add house
 const house = new House();
@@ -46,6 +46,37 @@ scene.add( grass );
 camera.position.x = -4;
 camera.position.z = 8;
 camera.position.y = 2;
+
+// import mcqueen gltf
+let mcqueen;
+let cone;
+let mater;
+
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('/assets/models/lighting_mcqueen/scene.gltf', (gltf) => {
+    mcqueen = gltf.scene;
+    mcqueen.position.set(-5, 0, 0);
+    mcqueen.scale.set(0.5, 0.5, 0.5);
+    mcqueen.rotation.x = Math.PI / 2;
+    scene.add(gltf.scene);
+});
+
+gltfLoader.load('/assets/models/traffic_cone/scene.gltf', (gltf) => {
+    cone = gltf.scene;
+    cone.scale.set(0.03, 0.03, 0.03);
+    cone.position.set(-4, 0, -1);
+    scene.add(gltf.scene);
+});
+
+gltfLoader.load('/assets/models/mater/scene.gltf', (gltf) => {
+    mater = gltf.scene;
+    mater.scale.set(0.4, 0.4, 0.4);
+    mater.position.set(-5, 0, -5);
+    // rotate mater 180 degrees
+    mater.rotation.y = Math.PI;
+    scene.add(gltf.scene);
+});
+
 
 function animate() {
     requestAnimationFrame( animate );
