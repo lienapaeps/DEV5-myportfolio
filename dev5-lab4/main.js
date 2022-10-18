@@ -34,9 +34,9 @@ scene.add( house.group );
 // add sand
 const sandGeometry = new THREE.PlaneGeometry( 20, 20 );
 const sandMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
- // load sand texture
- const sandTexture = loader.load( '/assets/textures/sand_texture.jpg' );
- sandMaterial.map = sandTexture;
+// load sand texture
+const sandTexture = loader.load( '/assets/textures/sand_texture.jpg' );
+sandMaterial.map = sandTexture;
 
 const sand = new THREE.Mesh( sandGeometry, sandMaterial );
 sand.rotation.x = -Math.PI / 2;
@@ -144,7 +144,7 @@ for(let i = 0; i < 15; i++) {
 function animate() {
     requestAnimationFrame( animate );
 
-    // zeppelin.rotation.y += 0.01;
+    zeppelin.rotation.y += 5 * Math.PI / 180;
 
     renderer.render( scene, camera );
 };
