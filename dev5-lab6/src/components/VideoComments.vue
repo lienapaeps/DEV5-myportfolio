@@ -2,8 +2,8 @@
 
 import { ref, onMounted, reactive } from 'vue'
 
-const users = reactive({ data: [] });
-const comments = reactive({ data: [] });
+let username = ref("");
+let message = ref("");
 
 onMounted(() => {
     const apiUrl = "https://lab5-p379.onrender.com/api/v1/messages/";
@@ -11,6 +11,8 @@ onMounted(() => {
         .then((response) => response.json())
         .then((data) => {
             console.log(data[0]);
+            username.value = data[0].user;
+            message.value = data[0].text;
         });
 });
 
@@ -20,12 +22,12 @@ onMounted(() => {
     <div class="chat">
         <h4>{{ username }}</h4>
         <p>{{ message }}</p>
-        videoComments
     </div>
 </template>
 
 <style scoped>
 .chat {
-    background-color: red;
+    background-color: #dbdbdb;
+    padding: 1em;
 }
 </style>
