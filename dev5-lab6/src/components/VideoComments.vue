@@ -2,34 +2,73 @@
 
 import { ref, onMounted, reactive } from 'vue'
 
-let username = ref("");
-let message = ref("");
 let comments = reactive({ data: [] });
+let comment = ref("");
 
 onMounted(() => {
     const apiUrl = "https://lab5-p379.onrender.com/api/v1/messages/";
     fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            comments = data;
-            // username.value = data[0].user;
-            // message.value = data[0].text;
+            // console.log(data);
+            comments.comments = data;
         });
 });
+
+const addComment = () => {
+    const apiUrl = "https://lab5-p379.onrender.com/api/v1/messages/";
+
+    let data = {
+        user: "Lienapiena",
+        text: comment.value
+    }
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            // console.log(data);
+            comments.push({
+                _id: data._id,
+                user: data.user,
+                text: data.text
+            });
+        });
+}
 
 </script>
 
 <template>
-    <div class="chat" v-for="comment in comments" :key="comment._id">
+    <div class="chat" v-for="comment in comments.comments" :key="comment.id">
         <h4>{{ comment.user }}</h4>
         <p>{{ comment.text }}</p>
+    </div>
+    <div class="form">
+        <input type="text" v-model="comment">
+        <button @click.prevent="addComment">Add comment ...</button>
     </div>
 </template>
 
 <style scoped>
 .chat {
     background-color: #dbdbdb;
+    padding: .5em 1em;
+}
+
+.form {
+    padding: 1em;
+}
+
+.form input {
+    margin-right: 1em;
+    padding: .5em 1em;
+}
+
+.form button {
     padding: .5em 1em;
 }
 </style>
