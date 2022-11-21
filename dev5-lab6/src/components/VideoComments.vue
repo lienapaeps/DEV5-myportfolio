@@ -32,10 +32,10 @@ const addComment = () => {
         .then((response) => response.json())
         .then((data) => {
             // console.log(data);
-            comments.push({
-                _id: data._id,
-                user: data.user,
-                text: data.text
+            comments.comments.push({
+                _id: data.data._id,
+                user: data.data.user,
+                text: data.data.text
             });
         });
 }
@@ -43,10 +43,13 @@ const addComment = () => {
 </script>
 
 <template>
-    <div class="chat" v-for="comment in comments.comments" :key="comment.id">
-        <h4>{{ comment.user }}</h4>
-        <p>{{ comment.text }}</p>
+    <div class="comments">
+        <div class="chat" v-for="comment in comments.comments" :key="comment.id">
+            <h4>{{ comment.user }}</h4>
+            <p>{{ comment.text }}</p>
+        </div>
     </div>
+
     <div class="form">
         <input type="text" v-model="comment">
         <button @click.prevent="addComment">Add comment ...</button>
@@ -54,6 +57,11 @@ const addComment = () => {
 </template>
 
 <style scoped>
+.comments {
+    overflow-y: auto;
+    height: 70vh;
+}
+
 .chat {
     background-color: #dbdbdb;
     padding: .5em 1em;
