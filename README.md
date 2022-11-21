@@ -7,3 +7,4 @@
 | [Lab 3](https://github.com/lienapaeps/DEV5-myportfolio/tree/main/dev5-lab3) | App prototypes |
 | [Lab 4](https://github.com/lienapaeps/DEV5-myportfolio/tree/main/dev5-lab4) | Three.js |
 | [Lab 5](https://github.com/lienapaeps/dev5-lab5) | NodeJS basics |
+| [Lab 6](https://github.com/lienapaeps/DEV5-myportfolio/tree/main/dev5-lab6) | VueJs |
